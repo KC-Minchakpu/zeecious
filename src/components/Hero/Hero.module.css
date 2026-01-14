@@ -1,0 +1,283 @@
+/* =======================
+   HERO SECTION
+======================= */
+.hero {
+  position: relative;
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, #78350f, #92400e, #b45309);
+  color: #fff;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.25), transparent);
+}
+
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.left {
+  flex: 1;
+}
+
+.title {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: bold;
+  line-height: 1.1;
+  text-align: center;
+  font-family: 'Play' sans-serif;
+}
+
+.title span {
+  color: #fcb353;
+  font-family: 'Poppins' sans-serif;
+}
+
+.description {
+  margin-top: 1.5rem;
+  max-width: 520px;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.searchForm {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+
+.searchIcon {
+  margin: 0 0.75rem;
+  color: #fbbf24;
+  font-size: 1.25rem;
+}
+
+.searchForm input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.searchForm input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.searchForm button {
+  background: #fbbf24;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.searchForm button:hover {
+  filter: brightness(1.1);
+}
+
+/* =======================
+   ACTION BUTTONS
+======================= */
+.actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.downloadBtn,
+.videoBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.downloadBtn {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.downloadBtn:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.videoBtn {
+  background: #fbbf24;
+  color: #78350f;
+}
+
+.videoBtn:hover {
+  filter: brightness(1.1);
+}
+
+/* =======================
+   RIGHT IMAGE SECTION
+======================= */
+.right {
+  flex: 1;
+  position: relative;
+  min-height: 360px;
+}
+
+/* MAIN IMAGE */
+.mainImage {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden; /* allow orbit images outside */
+  border: 6px solid rgba(0, 0, 0, 0.4);
+}
+
+.heroImg {
+  object-fit: cover;
+}
+
+/* ORBITING IMAGES */
+
+.orbitWrapper {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin: auto;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px; /* half of orbit width/height to center */
+  border-radius: 50%;
+  transform-origin: 0 0; /* center for orbiting */
+  animation: spin 12s linear infinite;
+}
+
+.orbit img {
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ORBIT ANIMATION */
+@keyframes spin {
+  from {
+    transform: rotate(0deg) translateX(180px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(180px) rotate(-360deg);
+  }
+}
+
+/* STAGGERED DELAYS */
+.delay0 {
+  animation-delay: 0s;
+}
+.delay1 {
+  animation-delay: 4s;
+}
+.delay2 {
+  animation-delay: 8s;
+}
+
+/* =======================
+   RESPONSIVE STYLES
+======================= */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .left {
+    text-align: center;
+  }
+
+  .mainImage {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orbit {
+    width: 70px;
+    height: 70px;
+    margin: -35px; /* half of orbit size */
+    animation: spin 12s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .mainImage {
+    width: 320px;
+    height: 320px;
+  }
+
+  .orbit {
+    width: 90px;
+    height: 90px;
+    margin: -45px;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg) translateX(150px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(150px) rotate(-360deg);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainImage {
+    width: 450px;
+    height: 450px;
+  }
+
+  .orbit {
+    width: 120px;
+    height: 120px;
+    margin: -60px;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg) translateX(200px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(200px) rotate(-360deg);
+    }
+  }
+}

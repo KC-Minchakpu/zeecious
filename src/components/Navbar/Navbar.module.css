@@ -1,0 +1,224 @@
+/* Navbar.module.css */
+
+.nav {
+  background-color: #242424;
+  border-bottom: 4px solid #f59e0b;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  font-family: var(--font-play), serif;
+}
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.logoText {
+  color: #fbbf24;
+  font-size: 1.75rem;
+  font-weight: bold;
+  letter-spacing: 0.025em;
+}
+
+.navLinks {
+  display: none; /* Hidden on mobile by default */
+  align-items: center;
+  gap: 2.5rem;
+  font-size: 1.15rem;
+}
+
+/* --- BUTTON VISIBILITY RULES --- */
+.mobileOnlyBtn {
+  display: none; /* Always hide mobile btn on desktop */
+}
+
+.desktopBtn {
+  display: block; /* Show desktop btn by default */
+}
+
+.hamburger {
+  display: none; /* Hide hamburger on desktop */
+  background: none;
+  border: none;
+  color: #fbbf24;
+  cursor: pointer;
+  z-index: 101;
+}
+
+/* --- MOBILE RESPONSIVE LOGIC --- */
+@media (max-width: 1024px) {
+  /* Adjusting breakpoint to 1024px to prevent crowding */
+  .hamburger {
+    display: block;
+  }
+
+  .desktopBtn {
+    display: none; /* Strictly hide desktop login on mobile */
+  }
+
+  .navLinks {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a, #2d1b0e);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    transition: right 0.4s ease;
+    z-index: 100;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .navActive {
+    right: 0;
+  }
+
+  .mobileOnlyBtn {
+    display: block; /* Show the login button inside the mobile menu drawer */
+  }
+}
+
+@media (min-width: 1025px) {
+  .navLinks {
+    display: flex; /* Show horizontal links on desktop */
+  }
+}
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.linkActive {
+  color: #fbbf24;
+}
+.linkInactive {
+  color: #e5e5e5;
+}
+
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background-color: #fbbf24;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.underlineActive {
+  transform: scaleX(1);
+}
+
+/* --- ACTIONS & CART --- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: #fbbf24;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  height: 1.2rem;
+  width: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #242424;
+}
+
+.loginBtn {
+  background-color: #fbbf24;
+  color: black;
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.loginBtn:hover {
+  background-color: #fcd34d;
+}
+
+/* --- MODAL --- */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  position: relative;
+  width: 90%;
+  max-width: 480px;
+  padding: 2.5rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #2d1b0e, #4a372a);
+  border: 4px solid rgba(191, 141, 42, 0.3);
+}
+
+.modalTitle {
+  text-align: center;
+  font-size: 1.75rem;
+  color: #fbbf24;
+  margin-bottom: 1.5rem;
+}
+
+.modalClose {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #f59e0b;
+  cursor: pointer;
+}
