@@ -45,7 +45,7 @@ const Hero = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Find your next favorite meal..."
+              placeholder="Find your next favourite meal..."
             />
             <button type="submit">Search</button>
           </form>
