@@ -43,8 +43,11 @@ const Navbar: React.FC = () => {
               className={styles.logo}
               onClick={() => setIsOpen(false)}
             >
-              <GiChefToque size={32} color="#fbbf24" />
-              <span className={styles.logoText}>Zeecious Food</span>
+              <GiChefToque size={48} color="#fbbf24" />
+              <span className={styles.logoTextWrapper}>
+                <span className={styles.logoText}>Zeecious Food</span>
+                <span className={styles.logoSubText}>Cuisine</span>
+              </span>
             </Link>
 
             <div
